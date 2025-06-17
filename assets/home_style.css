@@ -1,0 +1,329 @@
+/* assets/home_style.css */
+
+body {
+  background-color: #f2f4f7;  
+}
+
+/* ====================== Variables ====================== */
+:root {
+  --primary-color: #1d475a;
+  --secondary-color: #1d475a;
+  --accent-color: #24759f;
+  --text-color: #333;
+  --bg-light: #f9f9f9;
+  --bg-white: #fff;
+  --border-radius: 12px;
+  --transition: 0.3s ease;
+  --font-base: 'Cairo', sans-serif;
+
+  /* متغيّرات صندوق البحث */
+  --search-box-max-width: 432px;       /* أقصى عرض */
+  --search-box-height: 2.5rem;           /* ارتفاع الصندوق */
+  --search-box-margin-vertical: 0rem;  /* هامش أعلى وأسفل */
+  --search-box-padding: 0.75em 1.25em; /* الحشوة داخل الصندوق */
+}
+
+/* ====================== Search Box ====================== */
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--search-box-max-width);
+  height: var(--search-box-height);
+
+  /* هوامش عمودية */
+  margin-block-start: var(--search-box-margin-vertical);
+  margin-block-end:   var(--search-box-margin-vertical);
+
+  /* هوامش أفقية بداية/نهاية */
+  margin-inline-start: auto;  /* يدفع الصندوق لبداية السطر في الوضع المناسب (يمين في RTL) */
+  margin-inline-end:   10rem;  /* يضيف 2rem على الجهة المقابلة لبداية السطر */
+
+  padding: var(--search-box-padding);
+  background: var(--bg-white);
+  border: 2px solid var(--bg-white);
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+.search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.search-box .text-wrapper {
+  flex: 1;
+  border: none;
+  outline: none;
+  font: 700 1.1rem var(--font-base);
+  color: var(--text-color);
+  direction: rtl;
+  background: transparent;
+  padding: 0 0.5em;
+  height: auto;
+}
+
+/* ====================== Section Header (sr) ====================== */
+.sr {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+  padding: 2em 1.5em 1.5em;
+  max-width: 357px;
+  margin-left: auto;
+  position: relative;
+}
+
+.sr .sr-t {
+  font: 400 1.5rem var(--font-base);
+  color: var(--primary-color);
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: normal;
+  direction: rtl;
+}
+
+/* ====================== Services List Container ====================== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;    /* يمركز البطاقات داخل كل خلية */
+}
+/* ====================== Service Card Frame ====================== */
+.frame {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  text-align: center;
+  padding: 1em;
+  width: 100%;             /* تملأ الخلية بالكامل */
+  max-width: 260px;        /* لا تتجاوز الحجم الأصلي */
+  box-sizing: border-box;
+}
+.frame:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Fallback for older browsers: two-columns at ≤992px, one-column at ≤600px */
+
+.mobile_work_table { 
+display: none; 
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr; /* بطاقة واحدة في كل سطر */
+    padding: 1em;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* عمودان */
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* ثلاثة أعمدة */
+  }
+}
+
+@media (min-width: 1201px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr); /* أربعة أعمدة */
+  }
+}
+
+@media (max-width: 600px) {
+  .desktop_work_table {
+    display: none;
+  }
+  .mobile_work_table {
+    display: flex;               /* عرض عمودي */
+    flex-direction: column;
+    align-items: center;         /* جميع العناصر تصبح في الوسط */
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* مسافات بين العناصر الرئيسية */
+  .mobile_work_table .u_image,
+  .mobile_work_table .u_username {
+    margin-bottom: 0.5rem;
+  }
+
+  /* إعادة “تكسير” الجدول ليصبح بطاقات رأسية */
+  .mobile_work_table table {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 0;                   /* يلغي الهامش الافتراضي للجدول */
+margin-top: 2rem;
+  }
+  .mobile_work_table table tr {
+    display: flex;
+    flex-direction: column;      /* يحوّل كل صفّ إلى عمود */
+    align-items: center;
+    margin-bottom: 0rem;         /* مسافة بين كل صف وآخر */
+  }
+  .mobile_work_table table tr td {
+    display: block;              /* تجعل الخلية تأخذ سطرًا كاملًا */
+    width: auto;
+    margin: 0rem 0;           /* مسافة عمودية خفيفة */
+    text-align: center;
+  }
+
+  /* تنسيق “التسمية” و “القيمة” داخل الخلايا */
+  .mobile_work_table .work_tb_desk_td_1 {
+    font-weight: bold;
+    /* يمكنك تعديل الحجم/اللون حسب المتغيرات لديك */
+  }
+  .mobile_work_table .work_tb_desk_td_2 {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+  }
+}
+
+@media (max-width: 600px) {
+  .search-box {
+    /* اجعل الصندوق يملأ تقريباً كامل العرض مع هامش جانبي صغير */
+    width: calc(100% - 2rem);     /* 100% من العرض مطروحاً 2rem (1rem يمين + 1rem يسار) */
+    max-width: none;              /* يلغي الحد الأقصى للعرض */
+    
+    /* هامش علوي/سفلي كما سبق، وجانبي 1rem */
+    margin-block: var(--search-box-margin-vertical);
+    margin-inline: 1rem;
+  }
+}
+
+
+/* ====================== Card Elements ====================== */
+.frame .element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.frame .img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+
+.frame .div-wrapper {
+  margin-top: 0.75em;
+  padding: 0.5em;
+  background: var(--bg-light);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.frame .text-wrapper {
+  font: 700 1rem var(--font-base);
+  color: var(--text-color);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+
+/* ====================== User Image & Table Cells ====================== */
+.u_image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.u_td1,
+.work_tb_desk_td_1,
+.work_tb_desk_td_2 {
+ min-width: 150px;
+  padding: 0.75em 2.5em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: var(--border-radius);
+}
+
+.work_tb_desk_td_1 {
+  background: var(--secondary-color);
+  color: var(--bg-white);
+  font-size: 1.1rem;
+}
+
+.work_tb_desk_td_2 {
+  background: var(--bg-light);
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+/* ====================== Username Badge ====================== */
+.u_username {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14rem;
+  height: 2.5rem;
+  background: var(--bg-white);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.u_username:hover {
+  background: var(--accent-color);
+  border-color: var(--primary-color);
+  color: var(--bg-white);
+}
+
+/* ====================== Main Message ====================== */
+.main_msg1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1em 1.5em;
+  background: rgba(29,71,90,0.9);
+  color: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 22.5px rgba(0,0,0,0.6);
+  font: 700 1.125rem var(--font-base);
+}
+
+/* ========== محتوى الصفحة (بدون هيدر وفوتر) ========== */
+.page-content-wrapper {
+  /* لا تمتد بعرض الشاشة كاملاً */
+  width: 95%;
+  max-width: 1200px;
+  margin: 2em auto;           /* مركزة أفقياً ومسافة أعلاه وأسفله */
+
+  /* مظهر البوكس */
+  background-color: #ffffff;
+  border-radius: 16px;        /* حواف دائرية */
+  box-shadow: 
+    0 4px 16px rgba(0,0,0,0.10),   /* ظل أسفل */
+    0 -2px 8px rgba(0,0,0,0.05);    /* ظل أعلى */
+
+  /* حشوة داخلية لراحة المحتوى */
+  padding: 24px;
+  box-sizing: border-box;
+
+  /* مرن لتمركز المحتوى بداخله */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

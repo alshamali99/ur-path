@@ -1,0 +1,303 @@
+/* =========================================================
+   reg_p_style.css
+   (نسخة مُبسَّطة لتطبيق نفس التصميم البصري
+    لصفحة تسجيل مقدم الخدمة، بدون عمود جانبي)
+   ========================================================= */
+
+/*--------- متغيّرات الألوان والطباعة ---------*/
+:root {
+  /* ألوان */
+  --color-primary: #24759F;
+  --color-primary-hover: #1F5A89;
+  --color-text-dark: #000000;
+  --color-text-muted: rgba(0, 0, 0, 0.56);
+  --color-border: #969393;
+  --color-border-muted: #0000004C;
+  --color-error: #FF0000;
+  --color-bg-field: #FFFFFF;
+  --color-bg-container: #F9F9F9;
+
+  /* حدود وزوايا */
+  --border-radius-base: 8px;
+  --border-radius-large: 12px;
+  --border-width: 1px;
+
+  /* تباعد */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* الطباعة */
+  --font-primary: 'Cairo', sans-serif;
+  --font-weight-regular: 300;
+  --font-weight-medium: 600;
+  --font-weight-bold: 900;
+  --font-size-base: 14px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+}
+
+/*---------------------------------
+   الأساليب العامة للنصوص (RTL)
+---------------------------------*/
+body {
+  font-family: var(--font-primary);
+  direction: rtl;              /* القراءة من اليمين إلى اليسار */
+  background-color: var(--color-bg-container);
+  margin: 0;
+  padding: 0;
+  text-align: right;           /* جميع النصوص تلتزم على اليمين */
+}
+
+p,
+span {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+/* رسالة الترحيب (غير داخل النموذج) */
+.welcome_msg {
+  color: var(--color-text-muted);
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  margin-bottom: var(--spacing-lg);
+}
+
+/*=========================
+   الحاوية الرئيسية للتسجيل
+=========================*/
+.registration-wrapper {
+  max-width: 900px;             /* ضبط عرض الصندوق الأبيض */
+  width: 90%;
+  margin: 0 auto 40px;           /* مسافة علوية وأدنى */
+  padding: var(--spacing-lg);
+  background-color: #ffffff;
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/*==============================
+   تقسيم المحتوى (عمود واحد)
+==============================*/
+.content-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: center; /* توسيط العمود الأيسر داخل الحاوية */
+}
+
+/* العمود الأيسر: نموذج تسجيل مقدم الخدمة */
+.left-column {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* إبقاء النموذج في منتصف العمود أفقيًا */
+}
+
+/*-----------------------------
+   تنسيق نموذج التسجيل
+-----------------------------*/
+.registration-form-container {
+  width: 85%;                /* يأخذ عرض الحاوية بالكامل */
+  background-color: #f9f9f9;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  direction: rtl;             /* محاذاة عربية (يمين → يسار) */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;     /* تدفّق العناصر عموديًا داخل النموذج */
+  align-items: center;        /* إبقاء المحتوى في منتصف عرض النموذج */
+}
+
+/* نصوص التسميات (الليبل) */
+.registration-form-container label {
+  width: 100%;                /* يمتد بعرض النموذج كاملاً */
+  text-align: right;          /* محاذاة النص من الجهة اليمنى */
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* الحقول نفسها (Input, Select) */
+.registration-form-container input,
+.registration-form-container select {
+  width: 100%;                /* يحتل عرض النموذج كاملاً */
+  padding: 10px var(--spacing-sm);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-base);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-md);
+  box-sizing: border-box;
+  background-color: var(--color-bg-field);
+  direction: rtl;             /* محاذاة داخل الحقل من اليمين → يسار */
+  text-align: right;          /* محتوى الحقل يُكتب من الجهة اليمنى */
+}
+
+/* حالة الخطأ (Error) */
+.error-message {
+  color: var(--color-error);
+  font-size: 13px;
+  margin-bottom: var(--spacing-sm);
+  min-height: 20px;
+}
+
+/* سطر مفتاح الدولة + رقم الجوال */
+.phone-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  width: 100%;                /* لضمان امتداد السطر كاملاً */
+}
+
+.phone-select {
+  flex: 1;
+}
+
+.phone-input {
+  flex: 2;
+}
+
+/* زر إنشاء الحساب */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: var(--font-size-lg);
+  border: none;
+  border-radius: var(--border-radius-base);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: var(--spacing-md);
+}
+
+.submit-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* رابط تسجيل الدخول */
+.login-link {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-dark);
+  margin-top: var(--spacing-md);
+}
+
+.login-link .link-text {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  margin: 0 var(--spacing-xs);
+}
+
+.login-link .link-text:hover {
+  text-decoration: underline;
+}
+
+/* نجمة الحقول المطلوبة */
+.required {
+  color: var(--color-error);
+  margin-left: 4px;
+}
+
+/*==========================================
+   صندوق الصورة والنص الترحيبي الجانبي
+==========================================*/
+.side-image-container {
+  display: flex;
+  flex-direction: row;          /* جعل الصورة والنص أفقيًّا */
+  align-items: center;          /* محاذاة عمودية وسط */
+  justify-content: center;      /* توسيط أفقي داخل النموذج */
+  gap: var(--spacing-sm);       /* مسافة بين الصورة والنص */
+  margin-bottom: var(--spacing-md);
+  background: transparent;      /* شفافة تمامًا */
+  padding: 0;
+}
+
+.image-box {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;/* خلفية شفافة */
+  border-radius: 50%;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hand-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+  display: block;
+}
+
+.side-text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 20px;
+  color: var(--color-text-dark);
+  text-align: center;           /* لأنّ النص عربيٌّ (يمين → يسار) */
+  line-height: 1.2;
+  white-space: normal;          /* يسمح بكسر السطر عبر <br> */
+}
+
+/*========================
+   الاستجابة لشاشات أصغر
+========================*/
+@media (max-width: 992px) {
+  .content-columns {
+    flex-direction: column;
+  }
+  .left-column {
+    width: 100%;
+  }
+  .side-image-container {
+    position: static;
+    margin-top: var(--spacing-lg);
+    right: auto;
+    top: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .side-image-container {
+    display: none; /* إخفاء الزخرفة في الشاشات الضيقة جدًا */
+  }
+}
+
+@media (max-width: 576px) {
+  /* يجعل النموذج يأخذ عرض الحاوية بالكامل */
+  .registration-form-container {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  /* يجعل صف رقم الهاتف عمودياً ويملأ حقوله العرض */
+  .phone-row {
+    flex-direction: column;
+  }
+  .phone-select,
+  .phone-input {
+    width: 100%;
+  }
+}
+

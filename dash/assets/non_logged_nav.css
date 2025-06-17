@@ -1,0 +1,55 @@
+.desktop-nav {
+  background: linear-gradient(to bottom, #2c4350, #3e7da9);
+  padding: 10px 20px;
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+flex-direction: row-reverse;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+.nav-logo img {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* ---------- استجابة الجوال ---------- */
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    height: 40px;
+  }
+}

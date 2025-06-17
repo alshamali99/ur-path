@@ -1,0 +1,160 @@
+.slider-wrapper {
+  width: 90vw;               /* 90% من عرض الشاشة */
+  max-width: 500px;          /* أقصى عرض على الشاشات الكبيرة */
+  aspect-ratio: 1 / 1;       /* يجعل الحاوية مربعة */
+  margin: auto;
+  border: 1.5px solid #8DE0CD;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.slide img,
+.slide iframe {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pdf-slide img {
+  width: 80px;
+}
+
+.pdf-slide p {
+  font-size: 14px;
+  margin: 8px 0 0 0;
+}
+
+.no-slides-msg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: #888;
+  padding: 10px;
+}
+
+
+.controls {
+  position: absolute;
+  bottom: 45px; /* مكان الأزرار أسفل الشريحة */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* مسافة بين الزرين */
+  z-index: 10;
+}
+
+
+.controls button {
+  font-size: 24px;
+  padding: 5px 15px;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.dots {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dots .dot.active {
+  background-color: #333;
+}
+
+/* إطار منبثق */
+#modal-viewer {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .slider-wrapper {
+    width: 95vw;
+    max-width: 95vw;
+    aspect-ratio: 1 / 1;
+  }
+
+  .controls button {
+    font-size: 20px;
+    padding: 4px 12px;
+  }
+
+  .dots .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+

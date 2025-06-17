@@ -1,0 +1,399 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;  
+}
+
+body {
+    overflow-y: auto;   
+} 
+
+      .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+.title{
+   
+    max-width: 348px;
+    width: 70%;
+ 
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    gap: 2.44px;
+ 
+    border-radius: 2.44px;
+border: 1px solid #8DE0CD;
+box-shadow: 0px 1.22px 9.15px 0px rgba(0, 0, 0, 0.60);
+
+}
+.title_text{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Cairo';
+    color: darkolivegreen;
+    padding: 5px;
+}
+
+.desktop_view{
+ 
+    width: 700px;
+    max-width: 700px;
+
+
+}
+.u_img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    
+}
+.user{
+    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    direction: rtl;
+    display: flex;
+    gap: 12px;
+    right: 0;
+}
+.username{
+    padding: 10px;
+    font-family: 'Cairo';
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    width: 200px;
+    border: 1px solid darkolivegreen;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    position: relative;
+     
+     
+}
+.change_image{
+    border: 1px solid skyblue;    
+    border-radius: 6px;
+    background-color: whitesmoke;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.about_me{
+    position: relative;
+    background-color: #24759F;
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: #8DE0CD;
+    width: 100px;
+    height: 35px;
+    line-height: 25px;
+    justify-content: center;
+    
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: auto;
+    float: inline-end;
+}
+
+.about_me_box{
+    pointer-events: none;
+    border: cadetblue solid 1px;
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: darkblue;
+    width: 600px;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+     
+}
+.about_me_div{
+    position: relative;
+    float: inline-end;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: darkblue;
+    width: 400px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: white;     
+}
+.save_box{
+    position: relative;
+    right:-490px;
+
+}
+.save_btn{
+display: none;
+width: 120.25px;
+height: 22.5px;
+padding: 7.5px;
+justify-content: center;
+align-items: center;
+gap: 7.5px;
+flex-shrink: 0;
+border-radius: 6px;
+border: 0.75px solid #8DE0CD;
+background: #1C5979;
+color: #8DE0CD;
+text-align: center;
+font-family: Commissioner;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+ 
+}
+.rate_and_views{
+position: relative;
+display: flex;
+width: 150px;
+padding: 7.5px;
+justify-content: center;
+align-items: center;
+gap: 7.5px;
+border-radius: 6px;
+background: #24759F;
+color: #8DE0CD;
+text-align: right;
+font-family: Commissioner;
+font-size: 15.5px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+right: -280px;
+}
+.rate_and_views_2{
+    position: relative;
+    font-size: 17px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+     
+    bottom: -13px;
+}
+
+
+
+.aboute_me_edit{
+    position: relative;
+    z-index: 1;
+    top:-39px;
+    left: 18px;
+}
+
+
+.upload_form{
+    position: fixed;
+    display: none;
+    background-color: white;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid darkolivegreen; 
+    max-width: 400px;
+    width: 95%;
+    height: 200px;
+    border-radius: 6px;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.file{
+
+    right: 50%;
+    left: 50%;
+    font-size: 18px;
+    color: orangered;
+    border: 1px solid gainsboro;
+    border-radius: 6px;
+    margin: 6;
+    width: 70%;
+    background-color: floralwhite;
+}
+.close_btn{
+    position: fixed;
+    font-weight: 700;
+    background-color: orangered;
+    color: white;
+    padding: 5px;
+    top: 3;
+    left: 3;
+    transform: translate(3px,3px);
+    border-radius: 5px;
+
+}
+.update_img{
+ 
+    font-weight: 700;
+    background-color: darkolivegreen;
+    color: white;
+    padding: 5px; 
+    border-radius: 5px;
+    font-size: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+
+}
+
+
+
+/*********** For Mobile view **************/
+.mobile_view{
+    display: none;
+    
+    }
+
+.m_about_me{
+    background-color: #24759F;
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: #8DE0CD;
+    width: 100px;
+    height: 35px;
+    line-height: 25px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.m_about_me_box{
+    pointer-events: none;
+    border: cadetblue solid 1px;
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: darkblue;
+    max-width: 280px;
+    width: 90%;
+    height: 90px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+     
+}
+.m_about_me_div{
+    border-radius: 5px;
+    padding: 3px;
+    direction: rtl;
+    color: darkblue;
+    max-width: 400px;
+    width: 95%;
+    height: 120px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: white;     
+}
+.m_save_box{
+   
+    
+}
+.m_save_btn{
+    display: none;
+width: 120.25px;
+height: 30px;
+ 
+padding: 7.5px;
+justify-content: center;
+align-items: center;
+gap: 7.5px;
+border-radius: 6px;
+border: 0.75px solid #8DE0CD;
+background: #1C5979;
+color: #8DE0CD;
+font-size: 16px;
+font-style: normal;
+font-weight: 700; 
+
+}
+.m_rate_and_views{
+width: 132px;
+padding: 7.5px;
+justify-content: center;
+align-items: center;
+gap: 7.5px;
+border-radius: 6px;
+background: #24759F;
+color: #8DE0CD;
+text-align: right;
+font-family: Commissioner;
+font-size: 17.5px;
+font-style: normal;
+font-weight: 700;
+
+}
+.m_rate_and_views_2{
+   
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10;
+ 
+}
+.m_aboute_me_edit{
+    position: relative;
+    z-index: 1;
+    top: -87px;
+    left: -127;
+}
+
+
+
+
+
+
+
+
+
+.star{
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/***** Media ************/
+@media (max-width: 770px) {
+ 
+   .desktop_view{display: none;}
+  .mobile_view{display: inline;}
+
+
+}
+
+ 
